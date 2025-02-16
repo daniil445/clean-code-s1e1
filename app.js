@@ -8,10 +8,10 @@
 
 // Event handling, user interaction is what starts the code execution.
 
-var taskInput = document.getElementById("new-task");//Add a new task.
+var taskInput = document.getElementById("new_task");//Add a new task.
 var addButton = document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder = document.getElementById("incompleteTasks");//ul of #incompleteTasks
-var completedTasksHolder = document.getElementById("completed-tasks");//completed-tasks
+var incompleteTaskHolder = document.getElementById("incomplete_tasks");//ul of #incompleteTasks
+var completedTasksHolder = document.getElementById("completed_tasks");//completed-tasks
 
 
 //New task list item
@@ -76,19 +76,13 @@ var addTask = function () {
 //Edit an existing task.
 
 var editTask = function () {
-  console.log("Edit Task...");
-  console.log("Change 'edit' to 'save'");
-
-
   var listItem = this.parentNode;
-
   var editInput = listItem.querySelector("input[type=text]");
   var label = listItem.querySelector("label");
   var editBtn = listItem.querySelector(".edit");
-  var containsClass = listItem.classList.contains("edit-mode");
+  var containsClass = listItem.classList.contains("edit_mode");
   //If class of the parent is .editmode
   if (containsClass) {
-
     //switch to .editmode
     //label becomes the inputs value.
     label.innerText = editInput.value;
@@ -97,7 +91,6 @@ var editTask = function () {
     editInput.value = label.innerText;
     editBtn.innerText = "Save";
   }
-
   //toggle .editmode on the parent.
   listItem.classList.toggle("edit-mode");
 };
@@ -105,8 +98,6 @@ var editTask = function () {
 
 //Delete task.
 var deleteTask = function () {
-  console.log("Delete Task...");
-
   var listItem = this.parentNode;
   var ul = listItem.parentNode;
   //Remove the parent list item from the ul.
@@ -117,8 +108,6 @@ var deleteTask = function () {
 
 //Mark task completed
 var taskCompleted = function () {
-  console.log("Complete Task...");
-
   //Append the task list item to the #completed-tasks
   var listItem = this.parentNode;
   completedTasksHolder.appendChild(listItem);
@@ -128,7 +117,6 @@ var taskCompleted = function () {
 
 
 var taskIncomplete = function () {
-  console.log("Incomplete Task...");
   //Mark task as incomplete.
   //When the checkbox is unchecked
   //Append the task list item to the #incompleteTasks.
@@ -140,7 +128,6 @@ var taskIncomplete = function () {
 
 
 var ajaxRequest = function () {
-  console.log("AJAX Request");
 }
 
 //The glue to hold it all together.
